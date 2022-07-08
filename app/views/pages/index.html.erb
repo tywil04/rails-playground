@@ -5,26 +5,23 @@
     </h1>
     
     <section class="space-x-3 flex flex-row flex-grow">
-        <button class="rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-75 hover:bg-blue-700" 
-            data-controller="button"
-            data-button-target="button" 
-            data-action="click->button#toggle"
-            data-button-altstate-class="bg-red-500 hover:bg-red-600"
+        <button class="select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700" 
+            data-controller="interaction"
+            data-interaction-target="button" 
+            data-action="click->interaction#buttonToggle"
+            data-interaction-toggled-class="!bg-red-500 !hover:bg-red-600"
         >
             Button
         </button>
     
-        <div data-controller="dropdown" data-dropdown-open-class="!opacity-100 !pointer-events-auto" data-action="pointerleave->dropdown#close">
-            <button data-dropdown-target="button" 
-                class="rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-75 hover:bg-blue-700"
-                data-action="click->dropdown#toggle"
-            >
+        <div data-controller="interaction" data-interaction-open-class="!opacity-100 !pointer-events-auto" data-action="pointerleave->interaction#dropdownClose">
+            <button data-dropdown-target="button" data-action="click->interaction#dropdownToggle" class="select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700">
                 Dropdown
             </button>
-            <div data-dropdown-target="content" class="opacity-0 pointer-events-none h-fit z-10 absolute duration-75 bg-gray-50 border border-gray-100 rounded-[6px] py-1 flex flex-col space-y-1">
-                <p class="px-2.5 hover:bg-gray-100 cursor-pointer" data-dropdown-testvalue-param="Test Arg 1" data-action="click->dropdown#interaction">Short</p>
-                <p class="px-2.5 hover:bg-gray-100 cursor-pointer" data-dropdown-testvalue-param="Test Arg 2" data-action="click->dropdown#interaction">Quite Long</p>
-                <p class="px-2.5 hover:bg-gray-100 cursor-pointer" data-dropdown-testvalue-param="Test Arg 3" data-action="click->dropdown#interaction">Somewhat Longer</p>
+            <div data-interaction-target="content" class="opacity-0 pointer-events-none h-fit select-none z-10 absolute duration-100 bg-gray-50 border border-gray-100 rounded-[6px] py-1 flex flex-col space-y-1">
+                <p class="px-2.5 hover:bg-gray-100 cursor-pointer" data-interaction-testvalue-param="Test Arg 1" data-action="click->interaction#dropdownChildClicked">Short</p>
+                <p class="px-2.5 hover:bg-gray-100 cursor-pointer" data-interaction-testvalue-param="Test Arg 2" data-action="click->interaction#dropdownChildClicked">Quite Long</p>
+                <p class="px-2.5 hover:bg-gray-100 cursor-pointer" data-interaction-testvalue-param="Test Arg 3" data-action="click->interaction#dropdownChildClicked">Somewhat Longer</p>
             </div>
         </div>
     </section>

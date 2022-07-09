@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  get "/turbo", to: "pages#turbo-frame-test"
   get "/", to: "pages#index"
 end

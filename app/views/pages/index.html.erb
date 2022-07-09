@@ -1,28 +1,93 @@
 <section class="flex flex-col flex-grow space-y-3 text-sm">
     <h1 class="font-bold text-2xl">
-        Rails + Stimulus
+        Ruby + Rails + Tailwind + Turbo + Stimulus Playground
         <hr/>
     </h1>
     
-    <section class="space-x-3 flex flex-row flex-grow">
-        <button class="select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700" 
+    <section class="space-y-3 flex flex-col flex-grow">
+        <!-- <button class="select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700" 
             data-controller="interaction"
             data-interaction-target="button" 
             data-action="click->interaction#buttonToggle"
             data-interaction-toggled-class="!bg-red-500 !hover:bg-red-600"
         >
-            Button
-        </button>
-    
-        <div data-controller="interaction" data-interaction-open-class="!opacity-100 !pointer-events-auto" data-action="pointerleave->interaction#dropdownClose">
-            <button data-dropdown-target="button" data-action="click->interaction#dropdownToggle" class="select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700">
-                Dropdown
+            Toggle Button
+        </button> -->
+
+
+
+        <div class="flex flex-row flex-grow space-x-3">
+            <h1 class="leading-[26px]">Buttons:</h1>
+
+            <button class="border border-gray-200 box-border select-none rounded-[6px] bg-gray-100 px-2.5 py-0.5 text-black duration-100 hover:bg-gray-200 hover:border-gray-300 active:bg-gray-300 shadow-inner">
+                Regular Button
             </button>
-            <div data-interaction-target="content" class="opacity-0 pointer-events-none h-fit select-none z-10 absolute duration-100 bg-gray-50 border border-gray-100 rounded-[6px] py-1 flex flex-col space-y-1">
-                <p class="px-2.5 hover:bg-gray-100 cursor-pointer">Short</p>
-                <p class="px-2.5 hover:bg-gray-100 cursor-pointer">Quite Long</p>
-                <p class="px-2.5 hover:bg-gray-100 cursor-pointer">Somewhat Longer</p>
+    
+            <button class="border border-blue-700 box-border select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700 hover:border-blue-800 active:bg-blue-800 shadow-inner">
+                Blue Button
+            </button>
+    
+            <button class="border border-red-600 box-border select-none rounded-[6px] bg-red-500 px-2.5 py-0.5 text-white duration-100 hover:bg-red-600 hover:border-red-700 active:bg-red-700 shadow-inner">
+                Red Button
+            </button>
+    
+            <button class="border border-green-600 box-border select-none rounded-[6px] bg-green-500 px-2.5 py-0.5 text-white duration-100 hover:bg-green-600 hover:border-green-700 active:bg-green-700 shadow-inner">
+                Green Button
+            </button>
+        </div>
+
+        <div class="flex flex-row flex-grow space-x-3">
+            <h1 class="leading-[26px]">Dropdowns:</h1>
+
+            <div data-controller="dropdown" data-dropdown-open-class="!opacity-100 !pointer-events-auto !shadow-sm" data-action="pointerleave->dropdown#close">
+                <button data-action="click->dropdown#toggle" class="border border-gray-200 box-border select-none rounded-[6px] bg-gray-100 px-2.5 py-0.5 text-black duration-100 hover:bg-gray-200 hover:border-gray-300 active:bg-gray-300 shadow-inner">
+                    Regular Dropbown
+                </button>
+                <div data-dropdown-target="content" class="opacity-0 pointer-events-none h-fit select-none z-10 absolute duration-100 bg-gray-100 border border-gray-200 rounded-[6px] py-1 flex flex-col">
+                    <button class="px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" data-action="click->dropdown#close">Button</button>
+                    <%= link_to "Link To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                    <%= button_to "Button To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                </div>
+            </div>
+
+            <div data-controller="dropdown" data-dropdown-open-class="!opacity-100 !pointer-events-auto !shadow-sm" data-action="pointerleave->dropdown#close">
+                <button data-action="click->dropdown#toggle" class="border border-blue-700 box-border select-none rounded-[6px] bg-blue-600 px-2.5 py-0.5 text-white duration-100 hover:bg-blue-700 hover:border-blue-800 active:bg-blue-800 shadow-inner">
+                    Blue Dropdown
+                </button>
+                <div data-dropdown-target="content" class="opacity-0 pointer-events-none h-fit select-none z-10 absolute duration-100 bg-gray-100 border border-gray-200 rounded-[6px] py-1 flex flex-col">
+                    <button class="px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" data-action="click->dropdown#close">Button</button>
+                    <%= link_to "Link To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                    <%= button_to "Button To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                </div>
+            </div>
+
+            <div data-controller="dropdown" data-dropdown-open-class="!opacity-100 !pointer-events-auto !shadow-sm" data-action="pointerleave->dropdown#close">
+                <button data-action="click->dropdown#toggle" class="border border-red-600 box-border select-none rounded-[6px] bg-red-500 px-2.5 py-0.5 text-white duration-100 hover:bg-red-600 hover:border-red-700 active:bg-red-700 shadow-inner">
+                    Red Dropdown
+                </button>
+                <div data-dropdown-target="content" class="opacity-0 pointer-events-none h-fit select-none z-10 absolute duration-100 bg-gray-100 border border-gray-200 rounded-[6px] py-1 flex flex-col">
+                    <button class="px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" data-action="click->dropdown#close">Button</button>
+                    <%= link_to "Link To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                    <%= button_to "Button To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                </div>
+            </div>
+
+            <div data-controller="dropdown" data-dropdown-open-class="!opacity-100 !pointer-events-auto !shadow-sm" data-action="pointerleave->dropdown#close">
+                <button data-action="click->dropdown#toggle" class="border border-green-600 box-border select-none rounded-[6px] bg-green-500 px-2.5 py-0.5 text-white duration-100 hover:bg-green-600 hover:border-green-700 active:bg-green-700 shadow-inner">
+                    Green Dropdown
+                </button>
+                <div data-dropdown-target="content" class="opacity-0 pointer-events-none h-fit select-none z-10 absolute duration-100 bg-gray-100 border border-gray-200 rounded-[6px] py-1 flex flex-col">
+                    <button class="px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" data-action="click->dropdown#close">Button</button>
+                    <%= link_to "Link To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                    <%= button_to "Button To", "/", class: "px-2.5 py-0.5 hover:bg-gray-200 active:bg-gray-300 cursor-pointer text-left" %>
+                </div>
             </div>
         </div>
+
+        <turbo-frame id="testframe">
+            <%= link_to "Turbo Frame Test. Click me!", "/turbo" %>
+        </turbo-frame>
+
+        <turbo-frame id="testframe" src="/turbo"/>
     </section>
 </section>
